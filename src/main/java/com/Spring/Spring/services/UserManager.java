@@ -22,4 +22,10 @@ public class UserManager implements UserService {
 		return this.userDao.findAll();
 	}
 
+	@Override
+	public String add(User user) {
+		this.userDao.save(user);
+		return "You have successfully create a user";
+	}
+
 }
