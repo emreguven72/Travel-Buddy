@@ -28,4 +28,16 @@ public class UserManager implements UserService {
 		return "You have successfully create a user";
 	}
 
+	@Override
+	public User getById(int id) {
+		return this.userDao.findById(id);
+	}
+
+	@Override
+	public String deleteById(int id) {
+		User user = getById(id);
+		this.userDao.delete(user);
+		return "You have successfully delete a user";
+	}
+
 }
