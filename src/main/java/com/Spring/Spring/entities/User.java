@@ -54,6 +54,9 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "token")
+    private String token;
+
     @OneToMany(mappedBy = "user")
     public List<Travel> travels;
 

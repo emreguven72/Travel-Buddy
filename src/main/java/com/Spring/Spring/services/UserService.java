@@ -12,5 +12,7 @@ public interface UserService {
 	User getById(int id);
 
 	String deleteById(int id);
+
+	User getByEmail(String email);
 	
 }

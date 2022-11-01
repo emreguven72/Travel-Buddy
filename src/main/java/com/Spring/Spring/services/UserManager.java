@@ -4,7 +4,10 @@ import com.Spring.Spring.dataAccess.UserDao;
 import com.Spring.Spring.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class UserManager implements UserService {
@@ -24,6 +27,10 @@ public class UserManager implements UserService {
 
 	@Override
 	public String add(User user) {
+		byte[] array = new byte[20]; // length is bounded by 7
+		new Random().nextBytes(array);
+		String token = new String(array, Charset.forName("UTF-8"));
+		user.setToken(token);
 		this.userDao.save(user);
 		return "You have successfully create a user";
 	}
@@ -38,6 +45,11 @@ public class UserManager implements UserService {
 		User user = getById(id);
 		this.userDao.delete(user);
 		return "You have successfully delete a user";
+	}
+
+	@Override
+	public User getByEmail(String email) {
+		return this.userDao.getByEmail(email);
 	}
 
 }
