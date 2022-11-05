@@ -38,8 +38,8 @@ public class TravelsController {
     }
 
     @PostMapping(value = "/add")
-    public String add(@RequestBody Travel travel, @RequestParam int userId) {
-        User user = this.userService.getById(userId);
+    public String add(@RequestBody Travel travel) {
+        User user = travel.user;
         travel.user = user;
         return this.travelService.add(travel);
     }
