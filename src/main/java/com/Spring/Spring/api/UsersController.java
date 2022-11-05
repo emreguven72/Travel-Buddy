@@ -1,6 +1,7 @@
 package com.Spring.Spring.api;
 
 import com.Spring.Spring.entities.User;
+import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,11 @@ public class UsersController {
 	@DeleteMapping(value = "/delete")
 	public String delete(@RequestParam int id) {
 		return this.userService.deleteById(id);
+	}
+
+	@GetMapping(value = "/getById")
+	public ResponseEntity<?> getById(@RequestParam int id) {
+		return ResponseEntity.ok(this.userService.getById(id));
 	}
 
 	@GetMapping(value = "/getByEmail")
