@@ -26,13 +26,12 @@ public class UserManager implements UserService {
 	}
 
 	@Override
-	public String add(User user) {
+	public void add(User user) {
 		byte[] array = new byte[20]; // length is bounded by 7
 		new Random().nextBytes(array);
 		String token = new String(array, Charset.forName("UTF-8"));
 		user.setToken(token);
 		this.userDao.save(user);
-		return "You have successfully create a user";
 	}
 
 	@Override

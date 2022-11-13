@@ -1,7 +1,6 @@
 package com.Spring.Spring.api;
 
 import com.Spring.Spring.entities.User;
-import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import com.Spring.Spring.services.UserService;
 public class UsersController {
 	
 	private UserService userService;
-	
+
 	@Autowired
 	public UsersController(UserService userService) {
 		super();
@@ -32,13 +31,14 @@ public class UsersController {
 	}
 
 	@PostMapping(value = "/add")
-	public String add(@RequestBody User user) {
-		return this.userService.add(user);
+	public void add(@RequestBody String[] user) {
+		User userObject = new User(0,user[0],user[1],user[2],user[3],user[4],user[5],null,null,null);
+		this.userService.add(userObject);
 	}
 
 	@DeleteMapping(value = "/delete")
-	public String delete(@RequestParam int id) {
-		return this.userService.deleteById(id);
+	public ResponseEntity<?> delete(@RequestParam int id) {
+		return ResponseEntity.ok(this.userService.deleteById(id));
 	}
 
 	@GetMapping(value = "/getById")
@@ -50,5 +50,4 @@ public class UsersController {
 	public ResponseEntity<?> getByEmail(@RequestParam String email) {
 		return ResponseEntity.ok(this.userService.getByEmail(email));
 	}
-
 }

@@ -32,9 +32,7 @@ public class TravelManager implements TravelService{
     }
 
     @Override
-    public String add(Travel travel) {
+    public void add(Travel travel) {
         this.travelDao.save(travel);
-        return "You have successfully created a travel";
     }
-
 }

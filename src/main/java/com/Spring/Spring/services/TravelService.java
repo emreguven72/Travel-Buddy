@@ -12,6 +12,6 @@ public interface TravelService {
 
     List<Travel> getByUserId(int userId);
 
-    String add(Travel travel);
+    void add(Travel travel);
 
 }

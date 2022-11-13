@@ -57,9 +57,11 @@ public class User {
     @Column(name = "token")
     private String token;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true)
+    //TODO: add String image
+
+    @OneToMany(mappedBy = "user")
     public List<Travel> travels;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true)
+    @OneToMany(mappedBy = "user")
     public List<Post> posts;
 }

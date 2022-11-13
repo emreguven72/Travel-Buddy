@@ -7,7 +7,7 @@ public interface UserService {
 
 	List<User> getAll();
 
-	String add(User user);
+	void add(User user);
 
 	User getById(int id);
 
