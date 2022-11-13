@@ -36,7 +36,14 @@ public class TravelsController {
     }
 
     @PostMapping(value = "/add")
+<<<<<<< HEAD
     public void add(@RequestBody Travel travel) {
         this.travelService.add(travel);
+=======
+    public String add(@RequestBody Travel travel) {
+        User user = travel.user;
+        travel.user = user;
+        return this.travelService.add(travel);
+>>>>>>> 32384602c7574dc3b5756a9de920909b95d0d6db
     }
 }
