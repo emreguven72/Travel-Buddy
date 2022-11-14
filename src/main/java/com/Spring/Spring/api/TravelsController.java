@@ -2,7 +2,6 @@ package com.Spring.Spring.api;
 
 import com.Spring.Spring.entities.Travel;
 import com.Spring.Spring.services.TravelService;
-import com.Spring.Spring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class TravelsController {
     private TravelService travelService;
-    private UserService userService;
 
     @Autowired
-    public TravelsController(TravelService travelService, UserService userService) {
+    public TravelsController(TravelService travelService) {
         this.travelService = travelService;
-        this.userService = userService;
     }
 
     @GetMapping(value = "/getAll")
@@ -36,14 +33,7 @@ public class TravelsController {
     }
 
     @PostMapping(value = "/add")
-<<<<<<< HEAD
     public void add(@RequestBody Travel travel) {
         this.travelService.add(travel);
-=======
-    public String add(@RequestBody Travel travel) {
-        User user = travel.user;
-        travel.user = user;
-        return this.travelService.add(travel);
->>>>>>> 32384602c7574dc3b5756a9de920909b95d0d6db
     }
 }
