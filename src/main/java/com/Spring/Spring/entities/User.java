@@ -57,7 +57,8 @@ public class User {
     @Column(name = "token")
     private String token;
 
-    //TODO: add String image
+    @Column(name = "image")
+    private String image;
 
     @OneToMany(mappedBy = "user")
     public List<Travel> travels;

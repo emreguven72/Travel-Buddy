@@ -31,9 +31,8 @@ public class UsersController {
 	}
 
 	@PostMapping(value = "/add")
-	public void add(@RequestBody String[] user) {
-		User userObject = new User(0,user[0],user[1],user[2],user[3],user[4],user[5],null,null,null);
-		this.userService.add(userObject);
+	public void add(@RequestBody User user) {
+		this.userService.add(user);
 	}
 
 	@DeleteMapping(value = "/delete")

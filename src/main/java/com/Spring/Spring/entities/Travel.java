@@ -29,8 +29,17 @@ public class Travel {
     @Column(name = "end_location")
     private String endLocation;
 
-    //TODO: add String description
-    //TODO: add String carDetails
+    @Column(name = "description")
+    @NotBlank
+    @NotNull
+    private String description;
+
+
+    @Column(name = "carDetails")
+    @NotBlank
+    @NotNull
+    private String carDetails;
+
 
     @ManyToOne()
     @JoinColumn(name = "user_id")

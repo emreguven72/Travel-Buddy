@@ -31,6 +31,7 @@ public class UserManager implements UserService {
 		new Random().nextBytes(array);
 		String token = new String(array, Charset.forName("UTF-8"));
 		user.setToken(token);
+		user.setImage("default");
 		this.userDao.save(user);
 	}
 
