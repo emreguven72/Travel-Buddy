@@ -35,4 +35,9 @@ public class TravelManager implements TravelService{
     public void add(Travel travel) {
         this.travelDao.save(travel);
     }
+
+    @Override
+    public List<Travel> getByLocations(String startLocation, String endLocation) {
+        return this.travelDao.getByStartLocationAndEndLocation(startLocation,endLocation);
+    }
 }

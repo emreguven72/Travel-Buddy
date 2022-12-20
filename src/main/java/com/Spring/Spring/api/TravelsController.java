@@ -36,4 +36,9 @@ public class TravelsController {
     public void add(@RequestBody Travel travel) {
         this.travelService.add(travel);
     }
+
+    @GetMapping(value = "/getByLocations")
+    public ResponseEntity<?> getByLocations(@RequestParam String startLocation, @RequestParam String endLocation) {
+        return ResponseEntity.ok(this.travelService.getByLocations(startLocation,endLocation));
+    }
 }

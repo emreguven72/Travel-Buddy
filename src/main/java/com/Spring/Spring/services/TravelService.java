@@ -14,4 +14,6 @@ public interface TravelService {
 
     void add(Travel travel);
 
+    List<Travel> getByLocations(String startLocation,String endLocation);
+
 }

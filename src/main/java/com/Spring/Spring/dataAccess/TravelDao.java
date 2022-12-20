@@ -11,4 +11,6 @@ public interface TravelDao extends JpaRepository<Travel,Integer> {
 
     List<Travel> getByUser_Id(int userId);
 
+    List<Travel> getByStartLocationAndEndLocation(String startLocation, String endLocation);
+
 }
